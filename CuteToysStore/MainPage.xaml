@@ -6,9 +6,29 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="White">
 
     <Grid>
+        <NavigationView Name="NavView" IsSettingsVisible="False" IsBackButtonVisible="Collapsed" PaneDisplayMode="Top"
+                        ItemInvoked="NavigationView_ItemInvoked" Loaded="NavigationView_Loaded">
+            <NavigationView.Resources>
+                <SolidColorBrush x:Key="NavigationViewTopPaneBackground" Color="#f85c6c"/>
+                <SolidColorBrush x:Key="TopNavigationViewItemForeground" Color="White"/>
+                <SolidColorBrush x:Key="TopNavigationViewItemForegroundPointerOver" Color="White"/>
+                <SolidColorBrush x:Key="TopNavigationViewItemForegroundSelected" Color="White"/>
+                <SolidColorBrush x:Key="TopNavigationViewItemForegroundSelectedPointerOver" Color="White"/>
+                <SolidColorBrush x:Key="TopNavigationViewItemForegroundSelectedPressed" Color="White"/>
+            </NavigationView.Resources>
 
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Магазин" FontWeight="Bold" Tag="StoreView" Icon="Shop"/>
+                <NavigationViewItem Content="Корзина" FontWeight="Bold" Tag="CartView">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7BF;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame"/>
+        </NavigationView>
     </Grid>
 </Page>
