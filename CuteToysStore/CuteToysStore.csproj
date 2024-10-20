@@ -125,10 +125,14 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelayCommands.cs" />
     <Compile Include="StoreView.xaml.cs">
       <DependentUpon>StoreView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StoreViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -136,6 +140,27 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\Axolotl.png" />
+    <Content Include="Assets\images\Baby Bunny.jpg" />
+    <Content Include="Assets\images\Bunny.jpg" />
+    <Content Include="Assets\images\cat_burger.png" />
+    <Content Include="Assets\images\cat_shark.png" />
+    <Content Include="Assets\images\Chinchilla.png" />
+    <Content Include="Assets\images\CuteToys logo.png" />
+    <Content Include="Assets\images\dino.png" />
+    <Content Include="Assets\images\Hello Kitty.jpg" />
+    <Content Include="Assets\images\Long Ears Bunny.png" />
+    <Content Include="Assets\images\Milk Tea.png" />
+    <Content Include="Assets\images\Mushroom.jpg" />
+    <Content Include="Assets\images\Panda.jpg" />
+    <Content Include="Assets\images\Penguin.jpg" />
+    <Content Include="Assets\images\Pillow Cat.png" />
+    <Content Include="Assets\images\Pink Raccon.png" />
+    <Content Include="Assets\images\Rocky Cat.png" />
+    <Content Include="Assets\images\Round Seal.png" />
+    <Content Include="Assets\images\shiba.png" />
+    <Content Include="Assets\images\Stitch.jpg" />
+    <Content Include="Assets\images\Strong Bear.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -167,6 +192,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\json\products.json" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

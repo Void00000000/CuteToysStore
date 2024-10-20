@@ -9,6 +9,55 @@
     Background="White">
 
     <Grid>
-        <TextBlock Text="Store" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="Assets/images/CuteToys logo.png" Width="300" VerticalAlignment="Top" 
+               HorizontalAlignment="Center" Margin="0 20 0 20"/>
+
+        <Button Grid.Row="1" Content="Сортировать ∨" Foreground="Black" HorizontalAlignment = "Center" Margin="0 20 0 20">
+            <Button.Resources>
+                <SolidColorBrush x:Key="ButtonBackground" Color="White"/>
+                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="LightGray"/>
+                <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Gray"/>
+                <SolidColorBrush x:Key="ButtonBorderBrush" Color="Black"/>
+            </Button.Resources>
+            <Button.Flyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="По убыванию цены" Background="White" Foreground="Black"/>
+                    <MenuFlyoutItem Text="По возрастанию цены" Background="White" Foreground="Black"/>
+                    <MenuFlyoutItem Text="По названию, А-Я" Background="White" Foreground="Black"/>
+                    <MenuFlyoutItem Text="По названию, Я-А" Background="White" Foreground="Black"/>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+
+        <GridView Grid.Row="2" HorizontalAlignment="Center" ItemsSource="{x:Bind storeViewModel.Products}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Product">
+                    <StackPanel Width="200" Height="300" Margin="10">
+                        <Border Width="200" Height="200" CornerRadius="30">
+                            <Image Source="{x:Bind Image}" Width="200" Height="220"/>
+                        </Border>
+                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Black"/>
+                        <TextBlock  HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0 0 0 10">
+                            <Run Text="Цена: " Foreground="Black"/>
+                            <Run Text="{x:Bind Price}" Foreground="Red" />
+                            <Run Text=" ₽" Foreground="Black"/>
+                        </TextBlock>
+                        <Button Content="Добавить в корзину" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White"
+                                CornerRadius="10">
+                            <Button.Resources>
+                                <SolidColorBrush x:Key="ButtonBackground" Color="#f85c6c"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f73e51"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </Page>

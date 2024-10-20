@@ -22,9 +22,12 @@ namespace CuteToysStore
     /// </summary>
     public sealed partial class StoreView : Page
     {
+        private StoreViewModel storeViewModel;
         public StoreView()
         {
             this.InitializeComponent();
+            storeViewModel = new StoreViewModel();
+            this.DataContext = storeViewModel;
         }
     }
 }

@@ -1,0 +1,122 @@
+﻿[
+  {
+    "id": 1,
+    "name": "Аксолотль",
+    "price": 990.99,
+    "image": "Axolotl.png"
+  },
+  {
+    "id": 2,
+    "name": "Крольчата",
+    "price": 1299.99,
+    "image": "Baby Bunny.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Кролик с морковкой",
+    "price": 990.99,
+    "image": "Bunny.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Котик-бургер",
+    "price": 1190.99,
+    "image": "cat_burger.png"
+  },
+  {
+    "id": 5,
+    "name": "Шиншилла",
+    "price": 600.99,
+    "image": "Chinchilla.png"
+  },
+  {
+    "id": 6,
+    "name": "Динозаврик",
+    "price": 1119.99,
+    "image": "dino.png"
+  },
+  {
+    "id": 7,
+    "name": "Акула-котик",
+    "price": 990.99,
+    "image": "cat_shark.png"
+  },
+  {
+    "id": 8,
+    "name": "Хэллоу Китти",
+    "price": 690.99,
+    "image": "Hello Kitty.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Длинноухий кролик",
+    "price": 990.99,
+    "image": "Long Ears Bunny.png"
+  },
+  {
+    "id": 10,
+    "name": "Молочный чай",
+    "price": 890.99,
+    "image": "Milk Tea.png"
+  },
+  {
+    "id": 11,
+    "name": "Мухомор",
+    "price": 790.99,
+    "image": "Mushroom.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Панда",
+    "price": 990.99,
+    "image": "Panda.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Пингвин",
+    "price": 990.99,
+    "image": "Penguin.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Кот-подушка",
+    "price": 1990.99,
+    "image": "Pillow Cat.png"
+  },
+  {
+    "id": 15,
+    "name": "Розовый енот",
+    "price": 1290.99,
+    "image": "Pink Raccon.png"
+  },
+  {
+    "id": 16,
+    "name": "Роки кот",
+    "price": 1290.99,
+    "image": "Rocky Cat.png"
+  },
+  {
+    "id": 17,
+    "name": "Круглый тюлень",
+    "price": 1290.99,
+    "image": "Round Seal.png"
+  },
+  {
+    "id": 18,
+    "name": "Сиба-ину",
+    "price": 1290.99,
+    "image": "shiba.png"
+  },
+  {
+    "id": 19,
+    "name": "Стич",
+    "price": 1290.99,
+    "image": "Stitch.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Сильный медведь",
+    "price": 1190.99,
+    "image": "Strong Bear.jpg"
+  }
+]
