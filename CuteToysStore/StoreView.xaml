@@ -26,10 +26,14 @@
             </Button.Resources>
             <Button.Flyout>
                 <MenuFlyout>
-                    <MenuFlyoutItem Text="По убыванию цены" Background="White" Foreground="Black"/>
-                    <MenuFlyoutItem Text="По возрастанию цены" Background="White" Foreground="Black"/>
-                    <MenuFlyoutItem Text="По названию, А-Я" Background="White" Foreground="Black"/>
-                    <MenuFlyoutItem Text="По названию, Я-А" Background="White" Foreground="Black"/>
+                    <MenuFlyoutItem Text="По убыванию цены" Background="White" Foreground="Black" 
+                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="DescendingPrice"/>
+                    <MenuFlyoutItem Text="По возрастанию цены" Background="White" Foreground="Black"
+                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="AscendingPrice"/>
+                    <MenuFlyoutItem Text="По названию, А-Я" Background="White" Foreground="Black"
+                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="AscendingName"/>
+                    <MenuFlyoutItem Text="По названию, Я-А" Background="White" Foreground="Black"
+                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="DescendingName"/>
                 </MenuFlyout>
             </Button.Flyout>
         </Button>

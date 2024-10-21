@@ -3,120 +3,120 @@
     "id": 1,
     "name": "Аксолотль",
     "price": 990.99,
-    "image": "Axolotl.png"
+    "image": "Assets/images/Axolotl.png"
   },
   {
     "id": 2,
     "name": "Крольчата",
     "price": 1299.99,
-    "image": "Baby Bunny.jpg"
+    "image": "Assets/images/Baby Bunny.jpg"
   },
   {
     "id": 3,
     "name": "Кролик с морковкой",
     "price": 990.99,
-    "image": "Bunny.jpg"
+    "image": "Assets/images/Bunny.jpg"
   },
   {
     "id": 4,
     "name": "Котик-бургер",
     "price": 1190.99,
-    "image": "cat_burger.png"
+    "image": "Assets/images/cat_burger.png"
   },
   {
     "id": 5,
     "name": "Шиншилла",
     "price": 600.99,
-    "image": "Chinchilla.png"
+    "image": "Assets/images/Chinchilla.png"
   },
   {
     "id": 6,
     "name": "Динозаврик",
     "price": 1119.99,
-    "image": "dino.png"
+    "image": "Assets/images/dino.png"
   },
   {
     "id": 7,
     "name": "Акула-котик",
     "price": 990.99,
-    "image": "cat_shark.png"
+    "image": "Assets/images/cat_shark.png"
   },
   {
     "id": 8,
     "name": "Хэллоу Китти",
     "price": 690.99,
-    "image": "Hello Kitty.jpg"
+    "image": "Assets/images/Hello Kitty.jpg"
   },
   {
     "id": 9,
     "name": "Длинноухий кролик",
     "price": 990.99,
-    "image": "Long Ears Bunny.png"
+    "image": "Assets/images/Long Ears Bunny.png"
   },
   {
     "id": 10,
     "name": "Молочный чай",
     "price": 890.99,
-    "image": "Milk Tea.png"
+    "image": "Assets/images/Milk Tea.png"
   },
   {
     "id": 11,
     "name": "Мухомор",
     "price": 790.99,
-    "image": "Mushroom.jpg"
+    "image": "Assets/images/Mushroom.jpg"
   },
   {
     "id": 12,
     "name": "Панда",
     "price": 990.99,
-    "image": "Panda.jpg"
+    "image": "Assets/images/Panda.jpg"
   },
   {
     "id": 13,
     "name": "Пингвин",
     "price": 990.99,
-    "image": "Penguin.jpg"
+    "image": "Assets/images/Penguin.jpg"
   },
   {
     "id": 14,
     "name": "Кот-подушка",
     "price": 1990.99,
-    "image": "Pillow Cat.png"
+    "image": "Assets/images/Pillow Cat.png"
   },
   {
     "id": 15,
     "name": "Розовый енот",
     "price": 1290.99,
-    "image": "Pink Raccon.png"
+    "image": "Assets/images/Pink Raccon.png"
   },
   {
     "id": 16,
     "name": "Роки кот",
     "price": 1290.99,
-    "image": "Rocky Cat.png"
+    "image": "Assets/images/Rocky Cat.png"
   },
   {
     "id": 17,
     "name": "Круглый тюлень",
     "price": 1290.99,
-    "image": "Round Seal.png"
+    "image": "Assets/images/Round Seal.png"
   },
   {
     "id": 18,
     "name": "Сиба-ину",
     "price": 1290.99,
-    "image": "shiba.png"
+    "image": "Assets/images/shiba.png"
   },
   {
     "id": 19,
     "name": "Стич",
     "price": 1290.99,
-    "image": "Stitch.jpg"
+    "image": "Assets/images/Stitch.jpg"
   },
   {
     "id": 20,
     "name": "Сильный медведь",
     "price": 1190.99,
-    "image": "Strong Bear.jpg"
+    "image": "Assets/images/Strong Bear.jpg"
   }
 ]

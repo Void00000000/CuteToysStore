@@ -8,18 +8,10 @@ namespace CuteToysStore
 {
     internal class Product
     {
-        private string _image;
         public uint Id { get; }
-        public string Name { get;}
+        public string Name { get; set; }
         public decimal Price { get;}
-        public string Image
-        {
-            get => "Assets/images/" + _image;
-            set 
-            {
-                _image = value;
-            }
-        }
+        public string Image { get; set; }
 
         public Product(uint id, string name, decimal price, string image)
         {
