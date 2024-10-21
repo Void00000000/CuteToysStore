@@ -6,9 +6,49 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="White"
+    x:Name="CartViewPage">
 
     <Grid>
-        <TextBlock Text="Cart" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="Assets/images/CuteToys logo.png" Width="300" VerticalAlignment="Top" 
+       HorizontalAlignment="Center" Margin="0 20 0 20"/>
+
+        <TextBlock Grid.Row="1" Text="Общая стоимость: " Foreground="Black" HorizontalAlignment = "Center" FontSize="24" Margin="0 20 0 20"/>
+
+        <Button Grid.Row="2" Content="Сортировать ∨" Foreground="Black" HorizontalAlignment = "Center" Margin="0 20 0 20">
+            <Button.Resources>
+                <SolidColorBrush x:Key="ButtonBackground" Color="White"/>
+                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="LightGray"/>
+                <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Gray"/>
+                <SolidColorBrush x:Key="ButtonBorderBrush" Color="Black"/>
+            </Button.Resources>
+        </Button>
+
+        <ListView Grid.Row="3" ItemsSource="{x:Bind cartViewModel.CartProducts}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:CartProduct">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{x:Bind Id}" Grid.Column="0" Margin="10,0"/>
+                        <TextBlock Text="{x:Bind Name}" Grid.Column="1" Margin="10,0"/>
+                        <TextBlock Text="{x:Bind Price}" Grid.Column="2" Margin="10,0"/>
+                        <TextBlock Text="{x:Bind Quantity}" Grid.Column="3" Margin="10,0"/>
+                        <Button Content="Удалить" DataContext="cartViewModel" Command="{Binding ElementName=CartViewPage, Path=DataContext.RemoveCartProductCommand}" CommandParameter="{x:Bind Id}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

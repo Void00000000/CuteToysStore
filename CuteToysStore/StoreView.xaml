@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="White"
+    x:Name="StoreViewPage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -27,13 +28,13 @@
             <Button.Flyout>
                 <MenuFlyout>
                     <MenuFlyoutItem Text="По убыванию цены" Background="White" Foreground="Black" 
-                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="DescendingPrice"/>
+                                    Command="{x:Bind storeViewModel.SortProductsCommand}" CommandParameter="DescendingPrice"/>
                     <MenuFlyoutItem Text="По возрастанию цены" Background="White" Foreground="Black"
-                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="AscendingPrice"/>
+                                    Command="{x:Bind storeViewModel.SortProductsCommand}" CommandParameter="AscendingPrice"/>
                     <MenuFlyoutItem Text="По названию, А-Я" Background="White" Foreground="Black"
-                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="AscendingName"/>
+                                    Command="{x:Bind storeViewModel.SortProductsCommand}" CommandParameter="AscendingName"/>
                     <MenuFlyoutItem Text="По названию, Я-А" Background="White" Foreground="Black"
-                                    Command="{x:Bind storeViewModel.SortCommand}" CommandParameter="DescendingName"/>
+                                    Command="{x:Bind storeViewModel.SortProductsCommand}" CommandParameter="DescendingName"/>
                 </MenuFlyout>
             </Button.Flyout>
         </Button>
@@ -52,7 +53,7 @@
                             <Run Text=" ₽" Foreground="Black"/>
                         </TextBlock>
                         <Button Content="Добавить в корзину" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White"
-                                CornerRadius="10">
+                                CornerRadius="10" DataContext="storeViewModel" Command="{Binding ElementName=StoreViewPage, Path=DataContext.AddProductToCartCommand}" CommandParameter="{x:Bind Id}">
                             <Button.Resources>
                                 <SolidColorBrush x:Key="ButtonBackground" Color="#f85c6c"/>
                                 <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f73e51"/>

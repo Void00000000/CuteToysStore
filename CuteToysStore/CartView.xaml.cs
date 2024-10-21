@@ -22,9 +22,12 @@ namespace CuteToysStore
     /// </summary>
     public sealed partial class CartView : Page
     {
+        private readonly CartViewModel cartViewModel;
         public CartView()
         {
             this.InitializeComponent();
+            cartViewModel = new CartViewModel(ProductManager.CartProducts);
+            this.DataContext = cartViewModel;
         }
     }
 }

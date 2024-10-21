@@ -2,6 +2,8 @@
 using System;
 using System.IO;
 using System.Reflection;
+using Windows.UI.ViewManagement;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -15,6 +17,16 @@ namespace CuteToysStore
         public MainPage()
         {
             this.InitializeComponent();
+
+            var appView = ApplicationView.GetForCurrentView();
+            var titleBar = appView.TitleBar;
+            titleBar.BackgroundColor = Colors.White;
+            titleBar.ForegroundColor = Colors.Black;
+            titleBar.ButtonBackgroundColor = Colors.White;
+            titleBar.ButtonHoverBackgroundColor = Colors.LightGray;
+            titleBar.ButtonPressedBackgroundColor = Colors.DarkGray;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Gray;
+
             NavigationService.SetFrame(ContentFrame);
         }
 
