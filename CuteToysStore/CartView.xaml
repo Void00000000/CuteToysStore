@@ -30,22 +30,61 @@
             </Button.Resources>
         </Button>
 
-        <ListView Grid.Row="3" ItemsSource="{x:Bind cartViewModel.CartProducts}">
+        <ListView Grid.Row="3" HorizontalAlignment="Center" ItemsSource="{x:Bind cartViewModel.CartProducts}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:CartProduct">
-                    <Grid>
+                    <Grid Background="#E5E9EA" Margin="0 15 0 0" HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="160"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="{x:Bind Id}" Grid.Column="0" Margin="10,0"/>
-                        <TextBlock Text="{x:Bind Name}" Grid.Column="1" Margin="10,0"/>
-                        <TextBlock Text="{x:Bind Price}" Grid.Column="2" Margin="10,0"/>
-                        <TextBlock Text="{x:Bind Quantity}" Grid.Column="3" Margin="10,0"/>
-                        <Button Content="Удалить" DataContext="cartViewModel" Command="{Binding ElementName=CartViewPage, Path=DataContext.RemoveCartProductCommand}" CommandParameter="{x:Bind Id}"/>
+                        <Ellipse Grid.Column="0" Height="80" Width="80" Margin="25 10 0 10" HorizontalAlignment="Left">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{x:Bind Image}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Text="{x:Bind Name}" Grid.Column="1" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center">
+                            <Run Text="{x:Bind Price}" Foreground="Red" />
+                            <Run Text=" ₽" Foreground="Black"/>
+                        </TextBlock>
+                        <TextBlock Grid.Column="3" VerticalAlignment="Center">
+                            <Run Text="{x:Bind Quantity}" />
+                            <Run Text=" шт." Foreground="Black"/>
+                        </TextBlock>
+                        <StackPanel Grid.Column="4" VerticalAlignment="Center">
+                            <StackPanel.Resources>
+                                <ImageBrush x:Key="AddButtonImageBrush" ImageSource="Assets/images/add.png" Stretch="UniformToFill"/>
+                                <ImageBrush x:Key="LowButtonImageBrush" ImageSource="Assets/images/low.png" Stretch="UniformToFill"/>
+                            </StackPanel.Resources>
+                            <Button Height="20" Width="20" Background="{StaticResource AddButtonImageBrush}">
+                                <Button.Resources>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f85c6c"/>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
+                                </Button.Resources>
+                            </Button>
+                            <Button Height="20" Width="20" Background="{StaticResource LowButtonImageBrush}" Margin="0 5 0 0">
+                                <Button.Resources>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f85c6c"/>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+
+                        <Button Grid.Column="5" Content="Удалить" DataContext="cartViewModel" Foreground="White" CornerRadius="10" FontWeight="Bold"
+                                Command="{Binding ElementName=CartViewPage, Path=DataContext.RemoveCartProductCommand}" CommandParameter="{x:Bind Id}">
+                            <Button.Resources>
+                                <SolidColorBrush x:Key="ButtonBackground" Color="#f85c6c"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f73e51"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
+                            </Button.Resources>
+                        </Button>
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

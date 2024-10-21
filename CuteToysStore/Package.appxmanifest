@@ -9,7 +9,7 @@
   <Identity
     Name="17a99efa-22ce-4afb-abeb-d39405fea995"
     Publisher="CN=artor"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="17a99efa-22ce-4afb-abeb-d39405fea995" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

@@ -48,7 +48,7 @@
                         </Border>
                         <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Black"/>
                         <TextBlock  HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0 0 0 10">
-                            <Run Text="Цена: " Foreground="Black"/>
+                            <Run Text="Цена:" Foreground="Black"/>
                             <Run Text="{x:Bind Price}" Foreground="Red" />
                             <Run Text=" ₽" Foreground="Black"/>
                         </TextBlock>
