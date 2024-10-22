@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CuteToysStore
+﻿namespace CuteToysStore
 {
     internal class Product
     {
@@ -22,17 +16,17 @@ namespace CuteToysStore
         }
     }
 
-    internal class CartProduct : Product
+    /// <summary>
+    /// Продукты, добавленные в корзину
+    /// </summary>
+    internal class CartProduct
     {
+        public Product Product { get; }
         public uint Quantity { get; set; }
-        public CartProduct(uint id, string name, decimal price, string image, uint quantity) : base(id, name, price, image)
-        {
-            Quantity = quantity;
-        }
-
+        public decimal Price { get => Product.Price * Quantity; }
         public CartProduct(Product product, uint quantity)
-        : base(product.Id, product.Name, product.Price, product.Image)
         {
+            Product = product;
             Quantity = quantity;
         }
     }

@@ -4,6 +4,9 @@ using System.Windows.Input;
 
 namespace CuteToysStore
 {
+    /// <summary>
+    /// ViewModel класс для панели магазина
+    /// </summary>
     internal class StoreViewModel
     {
         public ObservableCollection<Product> Products { get; }

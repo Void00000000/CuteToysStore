@@ -14,23 +14,46 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Image Grid.Row="0" Source="Assets/images/CuteToys logo.png" Width="300" VerticalAlignment="Top" 
        HorizontalAlignment="Center" Margin="0 20 0 20"/>
 
-        <TextBlock Grid.Row="1" Text="Общая стоимость: " Foreground="Black" HorizontalAlignment = "Center" FontSize="24" Margin="0 20 0 20"/>
+        <TextBlock Grid.Row="1" HorizontalAlignment = "Center" Margin="0 20 0 0">
+            <Run Text="Общая стоимость: " Foreground="Black" FontSize="24"/>
+            <Run Text="{x:Bind cartViewModel.OverallPrice}" Foreground="Red" FontSize="24"/>
+            <Run Text=" ₽" Foreground="Black" FontSize="24"/>
+        </TextBlock>
 
-        <Button Grid.Row="2" Content="Сортировать ∨" Foreground="Black" HorizontalAlignment = "Center" Margin="0 20 0 20">
+        <TextBlock Grid.Row="2" HorizontalAlignment = "Center" Margin="0 0 0 10">
+            <Run Text="Количество товаров: " Foreground="Black" FontSize="24"/>
+            <Run Text="{x:Bind cartViewModel.OverallQuantity}" Foreground="Black" FontSize="24"/>
+            <Run Text=" шт." Foreground="Black" FontSize="24"/>
+        </TextBlock>
+
+        <Button Grid.Row="3" Content="Сортировать ∨" Foreground="Black" HorizontalAlignment = "Center" Margin="0 20 0 20">
             <Button.Resources>
                 <SolidColorBrush x:Key="ButtonBackground" Color="White"/>
                 <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="LightGray"/>
                 <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Gray"/>
                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Black"/>
             </Button.Resources>
+            <Button.Flyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="По убыванию цены" Background="White" Foreground="Black" 
+                            Command="{x:Bind cartViewModel.SortCartProductsCommand}" CommandParameter="DescendingPrice"/>
+                    <MenuFlyoutItem Text="По возрастанию цены" Background="White" Foreground="Black"
+                            Command="{x:Bind cartViewModel.SortCartProductsCommand}" CommandParameter="AscendingPrice"/>
+                    <MenuFlyoutItem Text="По названию, А-Я" Background="White" Foreground="Black"
+                            Command="{x:Bind cartViewModel.SortCartProductsCommand}" CommandParameter="AscendingName"/>
+                    <MenuFlyoutItem Text="По названию, Я-А" Background="White" Foreground="Black"
+                            Command="{x:Bind cartViewModel.SortCartProductsCommand}" CommandParameter="DescendingName"/>
+                </MenuFlyout>
+            </Button.Flyout>
         </Button>
 
-        <ListView Grid.Row="3" HorizontalAlignment="Center" ItemsSource="{x:Bind cartViewModel.CartProducts}">
+        <ListView Grid.Row="4" HorizontalAlignment="Center" Margin="0 0 0 20" ItemsSource="{x:Bind cartViewModel.CartProducts}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:CartProduct">
                     <Grid Background="#E5E9EA" Margin="0 15 0 0" HorizontalAlignment="Stretch">
@@ -38,17 +61,17 @@
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="45"/>
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="160"/>
                         </Grid.ColumnDefinitions>
 
                         <Ellipse Grid.Column="0" Height="80" Width="80" Margin="25 10 0 10" HorizontalAlignment="Left">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{x:Bind Image}"/>
+                                <ImageBrush ImageSource="{x:Bind Product.Image}"/>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <TextBlock Text="{x:Bind Name}" Grid.Column="1" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind Product.Name}" Grid.Column="1" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="2" VerticalAlignment="Center">
                             <Run Text="{x:Bind Price}" Foreground="Red" />
                             <Run Text=" ₽" Foreground="Black"/>
@@ -62,29 +85,29 @@
                                 <ImageBrush x:Key="AddButtonImageBrush" ImageSource="Assets/images/add.png" Stretch="UniformToFill"/>
                                 <ImageBrush x:Key="LowButtonImageBrush" ImageSource="Assets/images/low.png" Stretch="UniformToFill"/>
                             </StackPanel.Resources>
-                            <Button Height="20" Width="20" Background="{StaticResource AddButtonImageBrush}">
+                            <Button Height="20" Width="20" Background="{StaticResource AddButtonImageBrush}"
+                                    Command="{Binding ElementName=CartViewPage, Path=DataContext.IncreaseProductQuantityCommand}" CommandParameter="{x:Bind Product.Id}">
                                 <Button.Resources>
                                     <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f85c6c"/>
                                     <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
                                 </Button.Resources>
                             </Button>
-                            <Button Height="20" Width="20" Background="{StaticResource LowButtonImageBrush}" Margin="0 5 0 0">
+                            <Button Height="20" Width="20" Background="{StaticResource LowButtonImageBrush}" Margin="0 5 0 0"
+                                    Command="{Binding ElementName=CartViewPage, Path=DataContext.DecreaseProductQuantityCommand}" CommandParameter="{x:Bind Product.Id}">
                                 <Button.Resources>
                                     <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f85c6c"/>
                                     <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
                                 </Button.Resources>
                             </Button>
                         </StackPanel>
-
                         <Button Grid.Column="5" Content="Удалить" DataContext="cartViewModel" Foreground="White" CornerRadius="10" FontWeight="Bold"
-                                Command="{Binding ElementName=CartViewPage, Path=DataContext.RemoveCartProductCommand}" CommandParameter="{x:Bind Id}">
+                                Command="{Binding ElementName=CartViewPage, Path=DataContext.RemoveCartProductCommand}" CommandParameter="{x:Bind Product.Id}">
                             <Button.Resources>
                                 <SolidColorBrush x:Key="ButtonBackground" Color="#f85c6c"/>
                                 <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f73e51"/>
                                 <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
                             </Button.Resources>
                         </Button>
-
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
