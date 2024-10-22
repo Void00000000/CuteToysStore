@@ -143,11 +143,11 @@ namespace CuteToysStore
             switch (sortParam)
             {
                 case SortParams.AscendingPrice:
-                    sortedProducts = sortedProducts.OrderBy(p => p.Product.Price).ToList();
+                    sortedProducts = sortedProducts.OrderBy(p => p.Price).ToList();
                     break;
 
                 case SortParams.DescendingPrice:
-                    sortedProducts = sortedProducts.OrderByDescending(p => p.Product.Price).ToList();
+                    sortedProducts = sortedProducts.OrderByDescending(p => p.Price).ToList();
                     break;
                 case SortParams.AscendingName:
                     sortedProducts = sortedProducts.OrderBy(p => p.Product.Name).ToList();
