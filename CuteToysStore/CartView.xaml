@@ -22,13 +22,13 @@
 
         <TextBlock Grid.Row="1" HorizontalAlignment = "Center" Margin="0 20 0 0">
             <Run Text="Общая стоимость: " Foreground="Black" FontSize="24"/>
-            <Run Text="{x:Bind cartViewModel.OverallPrice}" Foreground="Red" FontSize="24"/>
+            <Run Text="{Binding OverallPrice}" Foreground="Red" FontSize="24"/>
             <Run Text=" ₽" Foreground="Black" FontSize="24"/>
         </TextBlock>
 
         <TextBlock Grid.Row="2" HorizontalAlignment = "Center" Margin="0 0 0 10">
             <Run Text="Количество товаров: " Foreground="Black" FontSize="24"/>
-            <Run Text="{x:Bind cartViewModel.OverallQuantity}" Foreground="Black" FontSize="24"/>
+            <Run Text="{Binding OverallQuantity}" Foreground="Black" FontSize="24"/>
             <Run Text=" шт." Foreground="Black" FontSize="24"/>
         </TextBlock>
 

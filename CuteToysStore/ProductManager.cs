@@ -25,7 +25,7 @@ namespace CuteToysStore
         // Продукты из панели магазина
         public static ObservableCollection<Product> Products { get; private set; }
         // Продукты из корзины
-        public static ObservableCollection<CartProduct> CartProducts { get; private set; }
+        public static TrulyObservableCollection<CartProduct> CartProducts { get; private set; }
 
         /// <summary>
         /// Читает продукты из панели магазина из .json файла
@@ -44,10 +44,10 @@ namespace CuteToysStore
             if (File.Exists(ApplicationData.Current.LocalFolder.Path + "\\cart_products.json"))
             {
                 a = JArray.Parse(File.ReadAllText(ApplicationData.Current.LocalFolder.Path + "\\cart_products.json"));
-                CartProducts = a.ToObject<ObservableCollection<CartProduct>>();
+                CartProducts = a.ToObject<TrulyObservableCollection<CartProduct>>();
             }
             else
-                CartProducts = new ObservableCollection<CartProduct>();
+                CartProducts = new TrulyObservableCollection<CartProduct>();
 
             // Создание словаря isAvailable
             isAvailable = new Dictionary<uint, bool>();
@@ -156,7 +156,23 @@ namespace CuteToysStore
                     sortedProducts = sortedProducts.OrderByDescending(p => p.Product.Name).ToList();
                     break;
             }
-            CartProducts = new ObservableCollection<CartProduct>(sortedProducts);
+            CartProducts = new TrulyObservableCollection<CartProduct>(sortedProducts);
+        }
+
+        static public decimal CalcOverallPrice()
+        {
+            decimal sum = 0;
+            foreach (CartProduct cartProduct in CartProducts)
+                sum += cartProduct.Price;
+            return sum;
+        }
+
+        static public uint CalcOverallQuantity()
+        {
+            uint sum = 0;
+            foreach (CartProduct cartProduct in CartProducts)
+                sum += cartProduct.Quantity;
+            return sum;
         }
 
         /// <summary>

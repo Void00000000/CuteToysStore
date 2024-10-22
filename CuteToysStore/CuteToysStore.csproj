@@ -143,6 +143,7 @@
       <DependentUpon>StoreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="StoreViewModel.cs" />
+    <Compile Include="TrulyObservableCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
