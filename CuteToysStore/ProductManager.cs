@@ -20,8 +20,8 @@ namespace CuteToysStore
     /// </summary> 
     static internal class ProductManager
     {
-        // Есть ли продукт с id в магазине
-        private static Dictionary<uint, bool> isAvailable;
+        // Словарь для быстрого поиска продуктов из корзины
+        private static Dictionary<uint, CartProduct> cartProductsDict;
         // Продукты из панели магазина
         public static ObservableCollection<Product> Products { get; private set; }
         // Продукты из корзины
@@ -49,14 +49,10 @@ namespace CuteToysStore
             else
                 CartProducts = new TrulyObservableCollection<CartProduct>();
 
-            // Создание словаря isAvailable
-            isAvailable = new Dictionary<uint, bool>();
-            foreach (Product product in Products)
-            {
-                isAvailable.Add(product.Id, false);
-            }
+            // Создание словаря
+            cartProductsDict = new Dictionary<uint, CartProduct>();
             foreach (CartProduct cartProduct in CartProducts) {
-                isAvailable[cartProduct.Product.Id] = true;
+                cartProductsDict.Add(cartProduct.Product.Id, cartProduct);
             }
         }
 
@@ -65,16 +61,15 @@ namespace CuteToysStore
         /// </summary>
         static public void AddProductToCart(Product product)
         {
-            if (isAvailable[product.Id])
+            if (cartProductsDict.ContainsKey(product.Id))
             {
-                foreach (CartProduct cartProduct in CartProducts)
-                    if (cartProduct.Product.Id == product.Id)
-                        ++cartProduct.Quantity;
+                cartProductsDict[product.Id].Quantity++;
             }
             else
             {
-                isAvailable[product.Id] = true;
-                CartProducts.Add(new CartProduct(product, 1));
+                CartProduct cartProduct = new CartProduct(product, 1);
+                cartProductsDict.Add(product.Id, cartProduct);
+                CartProducts.Add(cartProduct);
             }
         }
 
@@ -93,7 +88,7 @@ namespace CuteToysStore
         static public void DecreaseProductQuantity(CartProduct cartProduct)
         {
             if (cartProduct.Quantity <= 1) {
-                isAvailable[cartProduct.Product.Id] = false;
+                cartProductsDict.Remove(cartProduct.Product.Id);
                 CartProducts.Remove(cartProduct);
             }
             else
@@ -105,7 +100,7 @@ namespace CuteToysStore
         /// </summary>
         static public void RemoveCartProduct(CartProduct cartProduct)
         {
-            isAvailable[cartProduct.Product.Id] = false;
+            cartProductsDict.Remove(cartProduct.Product.Id);
             CartProducts.Remove(cartProduct);
         }
 
