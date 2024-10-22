@@ -13,14 +13,14 @@ namespace CuteToysStore
         public ICommand SortProductsCommand { get; }
         public ICommand AddProductToCartCommand { get; }
         public StoreViewModel() {
-            Products = new ObservableCollection<Product>(ProductManager.Products);
-            AddProductToCartCommand = new RelayCommands<uint>(AddProductToCart);
+            Products = ProductManager.Products;
+            AddProductToCartCommand = new RelayCommands<Product>(AddProductToCart);
             SortProductsCommand = new RelayCommands<string>(SortProducts, CanSortProducts);
         }
 
-        private void AddProductToCart(uint id)
+        private void AddProductToCart(Product product)
         {
-            ProductManager.AddProductToCart(id);
+            ProductManager.AddProductToCart(product);
         }
 
         private void SortProducts(string sortParam)

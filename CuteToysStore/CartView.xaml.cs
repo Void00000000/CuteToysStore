@@ -14,7 +14,7 @@ namespace CuteToysStore
         public CartView()
         {
             this.InitializeComponent();
-            cartViewModel = new CartViewModel(ProductManager.CartProducts);
+            cartViewModel = new CartViewModel();
             this.DataContext = cartViewModel;
         }
     }

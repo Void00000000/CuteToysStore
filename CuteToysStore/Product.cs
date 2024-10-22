@@ -2,10 +2,10 @@
 {
     internal class Product
     {
-        public uint Id { get;}
-        public string Name { get;}
+        public uint Id { get; }
+        public string Name { get; }
         public decimal Price { get; }
-        public string Image { get;}
+        public string Image { get; }
 
         public Product(uint id, string name, decimal price, string image)
         {

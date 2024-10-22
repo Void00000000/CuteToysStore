@@ -53,7 +53,7 @@
                             <Run Text=" ₽" Foreground="Black"/>
                         </TextBlock>
                         <Button Content="Добавить в корзину" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White"
-                                CornerRadius="10" DataContext="storeViewModel" Command="{Binding ElementName=StoreViewPage, Path=DataContext.AddProductToCartCommand}" CommandParameter="{x:Bind Id}">
+                                CornerRadius="10" DataContext="storeViewModel" Command="{Binding ElementName=StoreViewPage, Path=DataContext.AddProductToCartCommand}" CommandParameter="{x:Bind}">
                             <Button.Resources>
                                 <SolidColorBrush x:Key="ButtonBackground" Color="#f85c6c"/>
                                 <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f73e51"/>

@@ -86,14 +86,14 @@
                                 <ImageBrush x:Key="LowButtonImageBrush" ImageSource="Assets/images/low.png" Stretch="UniformToFill"/>
                             </StackPanel.Resources>
                             <Button Height="20" Width="20" Background="{StaticResource AddButtonImageBrush}"
-                                    Command="{Binding ElementName=CartViewPage, Path=DataContext.IncreaseProductQuantityCommand}" CommandParameter="{x:Bind Product.Id}">
+                                    Command="{Binding ElementName=CartViewPage, Path=DataContext.IncreaseProductQuantityCommand}" CommandParameter="{x:Bind}">
                                 <Button.Resources>
                                     <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f85c6c"/>
                                     <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
                                 </Button.Resources>
                             </Button>
                             <Button Height="20" Width="20" Background="{StaticResource LowButtonImageBrush}" Margin="0 5 0 0"
-                                    Command="{Binding ElementName=CartViewPage, Path=DataContext.DecreaseProductQuantityCommand}" CommandParameter="{x:Bind Product.Id}">
+                                    Command="{Binding ElementName=CartViewPage, Path=DataContext.DecreaseProductQuantityCommand}" CommandParameter="{x:Bind}">
                                 <Button.Resources>
                                     <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f85c6c"/>
                                     <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Red"/>
@@ -101,7 +101,7 @@
                             </Button>
                         </StackPanel>
                         <Button Grid.Column="5" Content="Удалить" DataContext="cartViewModel" Foreground="White" CornerRadius="10" FontWeight="Bold"
-                                Command="{Binding ElementName=CartViewPage, Path=DataContext.RemoveCartProductCommand}" CommandParameter="{x:Bind Product.Id}">
+                                Command="{Binding ElementName=CartViewPage, Path=DataContext.RemoveCartProductCommand}" CommandParameter="{x:Bind}">
                             <Button.Resources>
                                 <SolidColorBrush x:Key="ButtonBackground" Color="#f85c6c"/>
                                 <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#f73e51"/>

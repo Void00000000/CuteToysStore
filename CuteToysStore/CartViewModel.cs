@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace CuteToysStore
@@ -15,18 +15,14 @@ namespace CuteToysStore
         public ICommand IncreaseProductQuantityCommand { get; }
         public ICommand DecreaseProductQuantityCommand { get; }
         public ICommand SortCartProductsCommand { get; }
-        public decimal OverallPrice { get => CalcOverallPrice(); }
-        public uint OverallQuantity { get => CalcOverallQuantity(); }
-        public CartViewModel(Dictionary<uint, CartProduct> cartDictionary)
+        public decimal OverallPrice => CalcOverallPrice();
+        public uint OverallQuantity => CalcOverallQuantity();
+        public CartViewModel()
         {
-            CartProducts = new ObservableCollection<CartProduct>();
-            foreach (CartProduct cartProduct in cartDictionary.Values)
-            {
-                CartProducts.Add(cartProduct);
-            }
-            RemoveCartProductCommand = new RelayCommands<uint>(RemoveCartProduct);
-            IncreaseProductQuantityCommand = new RelayCommands<uint>(IncreaseProductQuantity);
-            DecreaseProductQuantityCommand = new RelayCommands<uint>(DecreaseProductQuantity);
+            CartProducts = ProductManager.CartProducts;
+            RemoveCartProductCommand = new RelayCommands<CartProduct>(RemoveCartProduct);
+            IncreaseProductQuantityCommand = new RelayCommands<CartProduct>(IncreaseProductQuantity);
+            DecreaseProductQuantityCommand = new RelayCommands<CartProduct>(DecreaseProductQuantity);
             SortCartProductsCommand = new RelayCommands<string>(SortCartProducts, CanSortCartProducts);
         }
 
@@ -46,21 +42,21 @@ namespace CuteToysStore
             return sum;
         }
 
-        private void IncreaseProductQuantity(uint id)
+        private void IncreaseProductQuantity(CartProduct cartProduct)
         {
-            ProductManager.IncreaseProductQuantity(id);
+            ProductManager.IncreaseProductQuantity(cartProduct);
             NavigationService.Navigate(typeof(CartView));
         }
 
-        private void DecreaseProductQuantity(uint id)
+        private void DecreaseProductQuantity(CartProduct cartProduct)
         {
-            ProductManager.DecreaseProductQuantity(id);
+            ProductManager.DecreaseProductQuantity(cartProduct);
             NavigationService.Navigate(typeof(CartView));
         }
 
-        private void RemoveCartProduct(uint id)
+        private void RemoveCartProduct(CartProduct cartProduct)
         {
-            ProductManager.RemoveCartProduct(id);
+            ProductManager.RemoveCartProduct(cartProduct);
             NavigationService.Navigate(typeof(CartView));
         }
 
